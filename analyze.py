@@ -1,12 +1,6 @@
 import gradio as gr
 import pandas as pd
 
-options = [
-    ("Bookmarked", "bookmarked"),
-    ("Applying", "applying"),
-    ("Applied", "applied"),
-    ("Interviewing", "interviewing"),
-]
 
 def _read(f_path):
     return pd.read_csv(f_path, header=0)
@@ -34,6 +28,13 @@ def analyze(f_path, date, status):
     return _to_string(df)
 
 
+options = [
+    ("Bookmarked", "bookmarked"),
+    ("Applying", "applying"),
+    ("Applied", "applied"),
+    ("Interviewing", "interviewing"),
+]
+
 ui_elem = [gr.FileExplorer(label="CSV File", glob="*.csv", file_count="single"),
                 gr.DateTime(label="Date to Examine", info="Filter the data to view only rows with this selected date", include_time=False),
                 gr.Dropdown(label="Application Status", info="Filter the data to view only this selected application status", choices=options)]
@@ -49,4 +50,4 @@ demo = gr.Interface(
                     submit_btn=gr.Button(value="Filter", variant="primary"),
                     theme=gr.themes.Soft())
 
-demo.launch(share=True)
+demo.launch()
