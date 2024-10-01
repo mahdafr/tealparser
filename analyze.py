@@ -49,4 +49,4 @@ demo = gr.Interface(
                     submit_btn=gr.Button(value="Filter", variant="primary"),
                     theme=gr.themes.Soft())
 
-demo.launch()
+demo.launch(share=True)
