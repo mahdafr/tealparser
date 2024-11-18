@@ -5,7 +5,7 @@ import pandas as pd
 def _read(f_path):
     return pd.read_csv(f_path, header=0)
 
-def _to_string(df, date):
+def _to_string(df):
     return "Unique Company Names:\n{3}\n\
                 \nUnique Role Titles:\n{2}\n\
                 \nEntries:\n{0}\n\
